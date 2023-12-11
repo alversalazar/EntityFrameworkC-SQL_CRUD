@@ -1,0 +1,78 @@
+﻿@model IEnumerable<NetC__CRUD.Models.Subject>
+
+@{
+    ViewBag.Title = "Index";
+}
+<h2 style="text-align: center; font-weight: bold;">Subject Records</h2>
+
+<div>
+    <a href="@Url.Action("Index","Home")" class="btn btn-primary">Inicio</a>
+</div>
+<button type="button" class="btn btn-secondary">
+    @Html.ActionLink("Create New", "Create", null, new { @class = "text-white" })
+</button>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.credit)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.unit)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.characteristic)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.keyMatter)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.status)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.credit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.unit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.characteristic)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.keyMatter)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.status)
+                    </td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-info">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.idSubject }, new { @class = "text-white" })
+                            </button>
+                            <button type="button" class="btn btn-warning">
+                                @Html.ActionLink("Details", "Details", new { id = item.idSubject }, new { @class = "text-white" })
+                            </button>
+                            <button type="button" class="btn btn-danger">
+                                @Html.ActionLink("Delete", "Delete", new { id = item.idSubject }, new { @class = "text-white" })
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

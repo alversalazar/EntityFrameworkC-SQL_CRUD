@@ -1,0 +1,111 @@
+﻿@model IEnumerable<NetC__CRUD.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="text-align: center; font-weight: bold;">Employee records</h2>
+
+<div>
+    <a href="@Url.Action("Index","Home")" class="btn btn-primary">Inicio</a>
+</div>
+<button type="button" class="btn btn-secondary">
+    @Html.ActionLink("Create New", "Create", null, new { @class = "text-white" })
+</button>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.lastname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.mothersLastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.gender)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.socialSecurity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.dateOfHire)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.idSubject)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.status)
+                </th>
+                <th></th>
+            </tr>
+
+           
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.lastname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.mothersLastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.gender)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.socialSecurity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.dateOfHire)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.idSubject)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.status)
+                    </td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-info">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.idEmployee }, new { @class = "text-white" })
+                            </button>
+                            <button type="button" class="btn btn-warning">
+                                @Html.ActionLink("Details", "Details", new { id = item.idEmployee }, new { @class = "text-white" })
+                            </button>
+                            <button type="button" class="btn btn-danger">
+                                @Html.ActionLink("Delete", "Delete", new { id = item.idEmployee }, new { @class = "text-white" })
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

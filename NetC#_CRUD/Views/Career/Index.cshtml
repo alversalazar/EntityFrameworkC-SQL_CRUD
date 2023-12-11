@@ -1,0 +1,54 @@
+﻿@model IEnumerable<NetC__CRUD.Models.Career>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2 style="text-align: center; font-weight: bold;">Career Records</h2>
+
+<div>
+    <a href="@Url.Action("Index","Home")" class="btn btn-primary">Inicio</a>
+</div>
+<button type="button" class="btn btn-secondary">
+    @Html.ActionLink("Create New", "Create", null, new { @class = "text-white" })
+</button>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.name)</th>
+                <th>@Html.DisplayNameFor(model => model.duration)</th>
+                <th>@Html.DisplayNameFor(model => model.description)</th>
+                <th>@Html.DisplayNameFor(model => model.status)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.duration)</td>
+                    <td>@Html.DisplayFor(modelItem => item.description)</td>
+                    <td>@Html.DisplayFor(modelItem => item.status)</td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-info">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.idCareer }, new { @class = "text-white" })
+                            </button>
+                            <button type="button" class="btn btn-warning">
+                                @Html.ActionLink("Details", "Details", new { id = item.idCareer }, new { @class = "text-white" })
+                            </button>
+                            <button type="button" class="btn btn-danger">
+                                @Html.ActionLink("Delete", "Delete", new { id = item.idCareer }, new { @class = "text-white" })
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
